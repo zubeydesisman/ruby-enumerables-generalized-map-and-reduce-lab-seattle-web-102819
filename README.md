@@ -2,11 +2,11 @@
 
 ## Learning Goals
 
-* Identify duplication that can be avoided with blocks
-* State two ways of constructing blocks
-* Execute a block from within a method
-* State the purpose of the `yield` keyword
-* Pass data between methods and blocks
+- Identify duplication that can be avoided with blocks
+- State two ways of constructing blocks
+- Execute a block from within a method
+- State the purpose of the `yield` keyword
+- Pass data between methods and blocks
 
 ## Introduction
 
@@ -68,7 +68,7 @@ which we've labeled with `Unique work`. We want to get rid of that duplicated
 
 When you learned to create methods, you learned that the way to _abstract_ the
 method is to pass in the stuff that varies as an _argument_ in the _call_ of
-the method. We'd _like_ to do the same thing here.  But in Ruby, we know we can
+the method. We'd _like_ to do the same thing here. But in Ruby, we know we can
 pass `String`s, `Array`s, `Hash`es, and `Float`s. With _blocks_, Ruby lets us
 pass in "work to do later," although it looks a little bit different than
 passing an argument to a method.
@@ -111,7 +111,6 @@ We pass a block to a method by including either a `{}` or a `do...end` block
 after our call to the method.
 
 ```ruby
-
 method_using_block { puts "hi" }
 
 # Is the same as...
@@ -136,7 +135,7 @@ Inside of the `make_sandwich` method, we could get the `String`s passed into
 `make_sandwich` by working with the local variables (or "_parameters_")
 `element1` or `element2`.
 
-When blocks are passed in, they ***are not stored*** in a _parameter_ name.
+When blocks are passed in, they **_are not stored_** in a _parameter_ name.
 They are, instead, _implicitly_ passed. We "run" the code in the block by using
 the Ruby keyword `yield`.
 
@@ -177,8 +176,8 @@ IRB.
 
 ## Pass Data Between Methods and Blocks
 
-In the same way that you provide _parameters_in methods in order to "catch"
-things passed in, we define _block-parameters_ by placing their name(s) between
+In the same way that you provide _parameters_ in methods in order to "catch"
+things passed in, we define \_block-parameters\_ by placing their name(s) between
 a pair of "pipe" characters (`|`), separated by commas (`,`). Then, within the
 block, we can use the passed-in data in whatever way we deem fit.
 
@@ -219,7 +218,6 @@ provide the final bit of "work" (look back to the first lesson, a little bit of
 "work" is common to all Enumerables!).
 
 ```ruby
-
 def make_sandwich(element1, element2)
   yield("A #{element1} and #{element2} sandwich")
 end
@@ -234,6 +232,7 @@ make_sandwich("Creamy peanut butter", "glittering sense of accomplishment") { |b
 make_sandwich("Creamy peanut butter", "glittering sense of accomplishment") { |b| "#{b.reverse} on #{"bread".reverse}" }
 
 # Try some more yourself!
+```
 
 This produces:
 
@@ -276,7 +275,7 @@ Remember, `reduce` returns a value.
 You might be interested to compare the code in the previous lesson to the code
 in this lesson: they're the exact same expectations but since we know how to
 use blocks we need only call `map` versus `map_to_negativize`,
-`map_to_no_change`, etc.
+`map_to_no_change`, etc...
 
 ```ruby
   expect(map_to_square([1, 2, 3, -9])).to eq([1, 4, 9, 81])
