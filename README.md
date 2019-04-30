@@ -99,7 +99,7 @@ Once you're sure you've gotten your implementation correct, you can use the
 shorter, and more elegant `{}` format.
 
 If you refuse this advice, if you need to include multiple expressions inside
-of a `{}`, you'll need to separate the expressions with `;`.
+of a `{}`, you should separate the expressions with `;`.
 
 On the other hand, it's hard to see how an expression like `-1 * x` could go
 wrong, so _maybe_ in some cases you can start with `{}`. Using `do...end` is
