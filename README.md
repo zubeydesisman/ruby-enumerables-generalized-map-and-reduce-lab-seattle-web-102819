@@ -256,7 +256,7 @@ should be the key to making a generalized, _abstract_ `map` and `reduce`.
 
 In this lab, you should write a generalized `map` and `reduce` method. Both of
 these methods will take a block and require that you pass information between
-the method and the block.
+the method and the block. Write your code in the `lib/my_code.rb` file.
 
 ### `map`
 
