@@ -1,37 +1,53 @@
 require 'spec_helper'
 
-describe 'These examples' do
-  it 'can be used to confirm if a method is present in required relative' do
-    expect { test_method }.not_to raise_error
+describe 'my own map' do
+  it "returns an array with all values made negative" do
+    expect(map([1, 2, 3, -9]){|n| n * -1}).to eq([-1, -2, -3, 9])
   end
 
-  it 'can be used to confirm if a method is not present in required relative' do
-    expect { second_test_method }.to raise_error(NameError)
+  it "returns an array with the original values" do
+    dune = ["paul", "gurney", "vladimir", "jessica", "chani"]
+    expect(map(dune){|n| n}).to eq(dune)
   end
 
-  it 'can be used to confirm if a method returns expected results in required relative' do
-    expect(test_method).to eq('bears') # equal(): strict comparison, eq(): value comparison
+  it "returns an array with the original values multiplied by 2" do
+    expect(map([1, 2, 3, -9]){|n| n * 2}).to eq([2, 4, 6, -18])
   end
 
-  it 'can be used to confirm if a class contains a specific method' do
-    expect(ExampleClass).to respond_to(:class_test)
+  it "returns an array with the original values squared" do
+    expect(map([1, 2, 3, -9]){|n| n * n}).to eq([1, 4, 9, 81])
+  end
+end
+
+describe 'my own reduce' do
+  it "returns a running total when not given a starting point" do
+    source_array = [1,2,3]
+    expect(reduce(source_array){|memo, n| memo + n}).to eq(6)
   end
 
-  it 'can be used to confirm if an instance method returns the expected results' do
-    example = ExampleClass.new
-    expect(example.instance_test).to eq('seriously')
+  it "returns a running total when given a starting point" do
+    source_array = [1,2,3]
+    starting_point = 100
+    expect(reduce(source_array, starting_point){|memo, n| memo + n}).to eq(106)
   end
 
-  it 'can be used to match strings' do
-    expect('There are two bears in a tree').to match(/bears in a tree/)
-    expect("They're both on the same limb").to include('limb')
+  it "returns true when all values are truthy" do
+    source_array = [1, 2, true, "razmatazz"]
+    expect(reduce(source_array){|memo, n| memo && n}).to be_truthy
   end
 
-  it 'can check types' do
-    example = ExampleClass.new
-    expect(example).to be_instance_of(ExampleClass)
+  it "returns false when any value is false" do
+    source_array = [1, 2, true, "razmatazz", false]
+    expect(reduce(source_array){|memo, n| memo && n}).to be_falsy
+  end
 
-    example_array = [1, 2, 3]
-    expect(example_array).to be_kind_of(Array)
+  it "returns true when a truthy value is present" do
+    source_array = [ false, nil, nil, nil, true]
+    expect(reduce(source_array){|memo, n| memo || n}).to eq(true)
+  end
+
+  it "returns false when no truthy value is present" do
+    source_array = [ false, nil, nil, nil]
+    expect(reduce(source_array){|memo, n| memo && n}).to eq(false)
   end
 end
