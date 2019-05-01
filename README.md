@@ -274,17 +274,17 @@ Remember, `reduce` returns a value.
 
 You might be interested to compare the code in the previous lesson to the code
 in this lesson: they're the exact same expectations but since we know how to
-use blocks we need only call `map` versus `map_to_negativize`,
-`map_to_no_change`, etc...
+use blocks we need only call `map` versus `map_to_negativize`;
+`map` versus `map_to_no_change`, etc...
 
 ```ruby
-  expect(map_to_square([1, 2, 3, -9])).to eq([1, 4, 9, 81])
+map_to_square([1, 2, 3, -9]) #=> [1, 4, 9, 81]
 ```
 
 became _generalized_ as:
 
 ```ruby
-  expect(map([1, 2, 3, -9]){|n| n * n}).to eq([1, 4, 9, 81])
+map([1, 2, 3, -9]){|n| n * n} #=> [1, 4, 9, 81]
 ```
 
 ## Conclusion
