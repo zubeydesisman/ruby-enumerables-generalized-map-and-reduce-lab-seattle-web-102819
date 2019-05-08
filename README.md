@@ -64,7 +64,7 @@ end
 
 As you can see, the only thing that varies between these methods is the line
 which we've labeled with `Unique work`. We want to get rid of that duplicated
-"noised" around those lines.
+"noise" around those lines.
 
 When you learned to create methods, you learned that the way to _abstract_ the
 method is to pass in the stuff that varies as an _argument_ in the _call_ of
