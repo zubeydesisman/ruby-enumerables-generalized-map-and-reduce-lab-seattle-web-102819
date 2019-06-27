@@ -82,7 +82,7 @@ We write blocks in Ruby using two syntaxes:
 
 We generally use curly brace when the work inside is only one expression. Since
 expressions in Ruby _always_ return a value, the return value of the block will
-the value of that _single_ expression.
+be the value of that _single_ expression.
 
 We use `do...end` when the work takes multiple lines. Just like methods,
 whatever is on the last line of a `do...end` block will be the return value of
